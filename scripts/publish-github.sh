@@ -7,7 +7,7 @@ cd "$ROOT"
 export PATH="${HOME}/.local/bin:${PATH}"
 
 REPO_NAME="${1:-veil-lumen}"
-GITHUB_USER="${GITHUB_USER:-0xbb}"
+GITHUB_USER="${GITHUB_USER:-Thedoctorjpg}"
 
 if ! command -v gh >/dev/null 2>&1; then
   echo "Install GitHub CLI: https://cli.github.com/ (or: curl gh release to ~/.local/bin)"

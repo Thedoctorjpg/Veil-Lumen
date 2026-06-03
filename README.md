@@ -62,16 +62,16 @@ gh auth login
 ./scripts/publish-github.sh
 ```
 
-Creates **https://github.com/0xbb/veil-lumen** (override user: `GITHUB_USER=you ./scripts/publish-github.sh`).
+Creates **https://github.com/Thedoctorjpg/veil-lumen** (override user: `GITHUB_USER=you ./scripts/publish-github.sh`).
 
 After push, enable **Settings → Pages → Build: GitHub Actions**. Site URL:
 
-**https://0xbb.github.io/veil-lumen/**
+**https://thedoctorjpg.github.io/veil-lumen/**
 
 Manual push (if repo already exists on GitHub):
 
 ```bash
-git remote add origin https://github.com/0xbb/veil-lumen.git
+git remote add origin https://github.com/Thedoctorjpg/veil-lumen.git
 git push -u origin main
 ```
 
