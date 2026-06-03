@@ -1,12 +1,13 @@
-/** Resolve /public/... URLs for root deploy and GitHub Pages project sites (/veil-lumen/). */
-const REPO_SEGMENT = "veil-lumen";
+/** Resolve /public/... URLs for root deploy and GitHub Pages project sites (/Veil-Lumen/). */
+const REPO_SEGMENTS = ["Veil-Lumen", "veil-lumen"];
 
 function detectBasePath() {
   const htmlBase = document.documentElement.dataset?.basePath;
   if (htmlBase !== undefined) return htmlBase.replace(/\/$/, "");
 
   const parts = location.pathname.split("/").filter(Boolean);
-  if (parts[0] === REPO_SEGMENT) return `/${REPO_SEGMENT}`;
+  const seg = parts[0];
+  if (seg && REPO_SEGMENTS.includes(seg)) return `/${seg}`;
   return "";
 }
 

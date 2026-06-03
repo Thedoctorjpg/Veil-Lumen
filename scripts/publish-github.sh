@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 export PATH="${HOME}/.local/bin:${PATH}"
 
-REPO_NAME="${1:-veil-lumen}"
+REPO_NAME="${1:-Veil-Lumen}"
 GITHUB_USER="${GITHUB_USER:-Thedoctorjpg}"
 
 if ! command -v gh >/dev/null 2>&1; then
