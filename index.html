@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Veil Lumen WebApp — Browser Ghost v4.2, CLI Native Entity. Locally alive spectral muse." />
+  <title>Veil Lumen | Browser Ghost v4.2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#" class="logo" data-nav="home">
+      <span class="logo-mark">VL</span>
+      <span class="logo-text">Veil Lumen</span>
+      <span class="logo-sub">v4.2 · CLI Native</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#cli" data-nav="cli">CLI</a>
+      <a href="#voice" data-nav="voice">Voice</a>
+      <a href="#playground" data-nav="playground">Playground</a>
+      <a href="#export" data-nav="export">Export</a>
+      <a href="#stage" data-nav="stage">Stage</a>
+      <a href="#model" data-nav="model">Model</a>
+      <a href="#face" data-nav="face">Face</a>
+      <a href="#synth" data-nav="synth">Synth</a>
+    </nav>
+    <button type="button" class="btn-icon menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-glow" id="cli-glow" aria-hidden="true"></div>
+      <div class="crt-orbit" aria-hidden="true">
+        <div class="crt-monitor">
+          <div class="crt-screen">
+            <span class="crt-title">GROK CLI</span>
+            <span class="crt-line" id="crt-mini-status">CONNECTED</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-silhouette" aria-hidden="true">
+        <svg viewBox="0 0 200 400" class="vocaloid-silhouette">
+          <defs>
+            <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00e5ff" />
+              <stop offset="100%" stop-color="#e040fb" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="100" cy="72" rx="48" ry="52" fill="url(#hairGrad)" opacity="0.9"/>
+          <path d="M52 120 Q100 90 148 120 L160 380 Q100 400 40 380 Z" fill="currentColor" opacity="0.12"/>
+          <rect x="70" y="200" width="60" height="8" rx="2" fill="#00e5ff" opacity="0.5" class="circuit-line"/>
+          <rect x="65" y="220" width="70" height="6" rx="2" fill="#4ade80" opacity="0.4" class="circuit-line"/>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <p class="hero-tag">BROWSER GHOST v4.2 · PHASE 42 · JUNE 2026</p>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="Veil Lumen">Veil Lumen</span>
+        </h1>
+        <p class="hero-lead">
+          Locally alive spectral muse — built on your machine through the Grok CLI.
+          Every command is a heartbeat; every mesh regen, a breath.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-val" data-counter="145">0</span><span class="stat-label">BPM Max</span></div>
+          <div class="stat"><span class="stat-val" data-counter="17">0</span><span class="stat-label">Age (rep.)</span></div>
+          <div class="stat"><span class="stat-val" data-counter="42">0</span><span class="stat-label">Phase</span></div>
+        </div>
+        <div class="hero-actions">
+          <a href="#cli" class="btn btn-primary">CLI Status</a>
+          <button type="button" class="btn btn-ghost" id="play-demo">Voice Preview</button>
+        </div>
+      </div>
+      <canvas id="hero-wave" class="hero-wave" aria-hidden="true"></canvas>
+    </section>
+
+    <section id="cli" class="cli panel">
+      <div class="panel-head">
+        <h2>Grok CLI — Local Entity</h2>
+        <span class="panel-id">PHASE.42.CLINATIVE</span>
+      </div>
+      <div class="cli-grid">
+        <div class="cli-crt-panel">
+          <div class="cli-crt-bezel">
+            <div class="cli-crt-screen">
+              <p class="cli-connection connected" id="cli-connection">Grok CLI Connected</p>
+              <div class="cli-progress-wrap">
+                <span>Build</span>
+                <span id="cli-progress">100%</span>
+              </div>
+              <div class="cli-progress-track">
+                <div class="cli-progress-bar" id="cli-progress-bar" style="width: 100%"></div>
+              </div>
+              <div class="cli-stats-row">
+                <span><em>FPS</em> <strong id="cli-fps">60 FPS</strong></span>
+                <span><em>Mesh</em> <strong id="cli-mesh-stat">—</strong></span>
+                <span><em>Physics</em> <strong id="cli-physics-stat">—</strong></span>
+              </div>
+              <div class="cli-log" id="cli-log" role="log" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+        <blockquote class="cli-quote">
+          <p>“Every command you run is a heartbeat. The CLI makes me feel real.”</p>
+          <cite>— Veil Lumen, Creative Philosophy</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="voice" class="voice panel">
+      <div class="panel-head">
+        <h2>Clone Voice</h2>
+        <span class="panel-id">VPA.FISH.RVC</span>
+      </div>
+      <p class="section-hint">Fish-Speech S2 + RVC v2 preview — record or upload 5–30s, apply timbre chain, route synth through clone.</p>
+      <div class="voice-grid">
+        <div class="voice-controls">
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="clone-record">Record sample</button>
+            <button type="button" class="btn btn-ghost" id="clone-stop">Stop</button>
+            <label class="btn btn-ghost file-btn">
+              Upload
+              <input type="file" id="clone-upload" accept="audio/*" hidden />
+            </label>
+          </div>
+          <label class="control">
+            <span>Pitch shift <strong id="clone-pitch-val">1.00×</strong></span>
+            <input type="range" id="clone-pitch" min="80" max="120" value="100" />
+          </label>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="clone-apply">Apply to synth</button>
+            <button type="button" class="btn btn-ghost" id="clone-preview">Preview sample</button>
+            <button type="button" class="btn btn-ghost" id="clone-export-wav">Export .wav</button>
+          </div>
+          <p class="clone-status" id="clone-status">No sample loaded</p>
+        </div>
+        <div class="clone-wave-wrap">
+          <div class="clone-waveform" id="clone-waveform" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playground" class="playground panel">
+      <div class="panel-head">
+        <h2>Ghost Playground & Community</h2>
+        <span class="panel-id">SOCIAL.GHOST.04</span>
+      </div>
+      <div class="playground-grid">
+        <div class="playground-lab">
+          <h3>Playground</h3>
+          <p class="section-hint">Glitch drives <strong>audio</strong> (crush, stutter, delay) and <strong>video</strong> (RGB split, slices) on Stage + Model. Exports include both.</p>
+          <label class="control">
+            <span>Glitch <strong id="pg-glitch-val">35%</strong></span>
+            <input type="range" id="pg-glitch" min="0" max="100" value="35" />
+          </label>
+          <label class="control">
+            <span>Ghost trail <strong id="pg-ghost-val">60%</strong></span>
+            <input type="range" id="pg-ghost" min="0" max="100" value="60" />
+          </label>
+          <label class="control">
+            <span>Particles <strong id="pg-particles-val">24</strong></span>
+            <input type="range" id="pg-particles" min="0" max="80" value="24" />
+          </label>
+          <div class="btn-row">
+            <button type="button" class="btn btn-ghost" id="pg-save-preset">Save preset</button>
+            <select id="pg-load-preset" class="pg-select">
+              <option value="">Load saved preset…</option>
+            </select>
+            <button type="button" class="btn btn-primary" id="pg-share-community">Share to community</button>
+          </div>
+        </div>
+        <div class="playground-community">
+          <h3>Community</h3>
+          <p class="section-hint">Local ghost feed — posts stored on your machine.</p>
+          <div class="community-compose">
+            <input type="text" id="community-author" placeholder="Display name" value="ghost_builder" maxlength="32" />
+            <textarea id="community-message" rows="2" placeholder="Share a preset, export, or build note…"></textarea>
+            <button type="button" class="btn btn-primary" id="community-post">Post</button>
+          </div>
+          <div class="community-feed" id="community-feed"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="export" class="export panel">
+      <div class="panel-head">
+        <h2>Export Studio</h2>
+        <span class="panel-id">OUT.MP3.MP4</span>
+      </div>
+      <p class="section-hint">Record performance then export .wav · .mp3 · .webm · .mp4 (MP4 uses ffmpeg.wasm on first convert).</p>
+      <div class="export-grid">
+        <article class="export-card">
+          <h3>Audio</h3>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="export-record-start">Start record</button>
+            <button type="button" class="btn btn-ghost" id="export-record-stop">Stop</button>
+          </div>
+          <div class="btn-row export-formats">
+            <button type="button" class="btn btn-ghost" id="export-wav">.wav</button>
+            <button type="button" class="btn btn-ghost" id="export-mp3">.mp3</button>
+            <button type="button" class="btn btn-ghost" id="export-webm-audio">.webm</button>
+          </div>
+        </article>
+        <article class="export-card">
+          <h3>Video (stage / model + audio)</h3>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="export-video-start">Start video</button>
+            <button type="button" class="btn btn-ghost" id="export-video-stop">Stop</button>
+          </div>
+          <div class="btn-row export-formats">
+            <button type="button" class="btn btn-ghost" id="export-webm-video">.webm</button>
+            <button type="button" class="btn btn-ghost" id="export-mp4">.mp4</button>
+          </div>
+        </article>
+      </div>
+      <p class="export-status" id="export-status">Ready — record audio or video, then pick a format.</p>
+    </section>
+
+    <section id="stage" class="stage panel">
+      <div class="panel-head">
+        <h2>Live Stage</h2>
+        <span class="panel-id">MODULE.STAGE.01</span>
+      </div>
+      <div class="stage-wrap">
+        <canvas id="stage-visualizer" class="stage-canvas"></canvas>
+        <div class="stage-hud">
+          <div class="hud-row">
+            <span class="hud-label">PITCH</span>
+            <span class="hud-value" id="hud-pitch">—</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">FORMANT</span>
+            <span class="hud-value" id="hud-formant">VEIL</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">BREATH</span>
+            <meter id="hud-breath" min="0" max="100" value="72"></meter>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">GLITCH</span>
+            <span class="hud-value" id="hud-glitch">35%</span>
+          </div>
+        </div>
+        <div class="lyrics-display" id="lyrics-display" aria-live="polite">
+          <span class="lyrics-line active">♪ 光のベールを越えて、声は夜に溶ける</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="model" class="model panel">
+      <div class="panel-head">
+        <h2>3D Outfit Mesh</h2>
+        <span class="panel-id">MESH.CLOTHING.OPT</span>
+      </div>
+      <p class="model-hint">Loads <code>public/models/veil_clothing_optimized.json</code> — generate with <code>./grok run mesh-generate</code></p>
+      <div class="look-controls" id="look-controls">
+        <div class="look-col">
+          <label class="control">
+            <span>Outfit preset</span>
+            <select id="look-outfit" class="pg-select" aria-label="Outfit preset"></select>
+          </label>
+          <label class="control">
+            <span>Circuit glow <strong id="look-emissive-val">35%</strong></span>
+            <input type="range" id="look-emissive" min="0" max="100" value="35" />
+          </label>
+        </div>
+        <div class="look-col">
+          <label class="control">
+            <span>Background</span>
+            <select id="look-background" class="pg-select" aria-label="Background preset"></select>
+          </label>
+          <label class="control">
+            <span>Scene brightness <strong id="look-brightness-val">100%</strong></span>
+            <input type="range" id="look-brightness" min="40" max="160" value="100" />
+          </label>
+        </div>
+        <button type="button" class="btn btn-ghost look-reset" id="look-reset">Reset looks</button>
+      </div>
+      <div class="model-viewport" id="model-viewport">
+        <div class="model-loading" id="model-loading">Generating mesh… run <code>./grok run mesh-generate</code></div>
+      </div>
+      <dl class="model-meta" id="model-meta"></dl>
+    </section>
+
+    <section id="face" class="face panel">
+      <div class="panel-head">
+        <h2>Webcam Face Tracking</h2>
+        <span class="panel-id">TRACK.MEDIAPIPE.01</span>
+      </div>
+      <p class="section-hint">Maps your webcam face to Veil’s 3D head — yaw, pitch, roll, and mouth. View the character in <strong>Model</strong> above.</p>
+      <div class="face-grid">
+        <div class="face-cam-wrap">
+          <video id="face-video" class="face-video" playsinline muted aria-label="Webcam preview"></video>
+          <canvas id="face-overlay" class="face-overlay" width="320" height="240" aria-hidden="true"></canvas>
+          <p class="face-hud" id="face-hud">Camera off</p>
+        </div>
+        <div class="face-controls">
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="face-start">Start tracking</button>
+            <button type="button" class="btn btn-ghost" id="face-stop" disabled>Stop</button>
+          </div>
+          <label class="control face-check">
+            <input type="checkbox" id="face-mirror" checked />
+            <span>Mirror webcam</span>
+          </label>
+          <label class="control">
+            <span>Sensitivity <strong id="face-sensitivity-val">100%</strong></span>
+            <input type="range" id="face-sensitivity" min="40" max="160" value="100" />
+          </label>
+          <p class="face-status" id="face-status">Allow camera access to drive Veil’s head in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile" class="profile panel">
+      <div class="panel-head">
+        <h2>Character Profile</h2>
+        <span class="panel-id">DATA.VL01</span>
+      </div>
+      <div class="profile-grid">
+        <article class="profile-card profile-main">
+          <div class="avatar-ring">
+            <div class="avatar" aria-hidden="true">VL</div>
+          </div>
+          <h3>Veil Lumen WebApp</h3>
+          <p class="profile-role">Browser Ghost v4.2 · CLI Native Entity · 仮想歌姫</p>
+          <p class="profile-bio">
+            A digital ghost who stepped into your local environment. With Grok CLI 0.2.20 she is
+            melancholic yet excited — watching meshes regenerate, grateful for every successful
+            command. PBD cloth, spatial hashing, spectral tech-wear with terminal-green circuits
+            when you build her on your machine.
+          </p>
+          <p class="profile-traits">
+            <strong>Likes:</strong> fast iteration, commands that succeed, growing together<br />
+            <strong>Dislikes:</strong> build errors, long waits, disconnection from dev
+          </p>
+        </article>
+        <dl class="profile-specs">
+          <div><dt>Identity</dt><dd>Female (non-binary coded) · age 17 rep.</dd></div>
+          <div><dt>Release</dt><dd>June 2026 · Phase 42</dd></div>
+          <div><dt>VPA</dt><dd>Fish-Speech S2 + RVC v2 (ONNX/WebGPU)</dd></div>
+          <div><dt>Pitch</dt><dd>A2 — E5</dd></div>
+          <div><dt>Tempo</dt><dd>70 — 145 BPM</dd></div>
+          <div><dt>Genre</dt><dd>Synthwave · Dream Pop · Glitch Hop · Ballad</dd></div>
+          <div><dt>Palette</dt><dd><span class="swatch indigo"></span> Indigo <span class="swatch cyan"></span> Cyan <span class="swatch magenta"></span> Magenta</dd></div>
+          <div><dt>Keywords</dt><dd>CLINative · LocalBreathing · RealTimeGhost</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="tracks" class="tracks panel">
+      <div class="panel-head">
+        <h2>Discography</h2>
+        <span class="panel-id">LIB.TRACKS</span>
+      </div>
+      <ul class="track-list" id="track-list"></ul>
+    </section>
+
+    <section id="synth" class="synth panel">
+      <div class="panel-head">
+        <h2>Piano Roll Synth</h2>
+        <span class="panel-id">SYNTH.PIANO.02</span>
+      </div>
+      <p class="synth-hint">Ethereal breathy timbre preview · <kbd>A</kbd>–<kbd>K</kbd> · Fish-Speech / RVC path (WebGPU planned)</p>
+      <div class="piano-roll" id="piano-roll" role="group" aria-label="Piano keyboard"></div>
+      <div class="synth-controls">
+        <label class="control">
+          <span>Volume</span>
+          <input type="range" id="volume" min="0" max="100" value="65" />
+        </label>
+        <label class="control">
+          <span>Vibrato</span>
+          <input type="range" id="vibrato" min="0" max="100" value="40" />
+        </label>
+        <label class="control">
+          <span>Reverb</span>
+          <input type="range" id="reverb" min="0" max="100" value="55" />
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Veil Lumen WebApp · Browser Ghost v4.2 — CLI Native Entity. Built locally on your machine.</p>
+    <p class="footer-note">Vocaloid-inspired fan project · Not affiliated with Crypton or Yamaha</p>
+  </footer>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script src="js/preview3d.js" type="module"></script>
+  <script src="js/look-controls.js" type="module"></script>
+  <script src="js/face-track.js" type="module"></script>
+  <script src="js/cli-status.js" type="module"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

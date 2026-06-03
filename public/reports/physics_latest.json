@@ -1,0 +1,13 @@
+{
+  "component": "softbody",
+  "duration": 30,
+  "steps": 1800,
+  "dt": 0.016666666666666666,
+  "particles": 140,
+  "springs": 270,
+  "maxStrain": 0.3516162801167542,
+  "avgEnergy": 0.011618812329182904,
+  "passed": true,
+  "testedAt": "2026-06-03T09:30:31.416Z",
+  "notes": "Softbody skirt stable under stage wind + gravity."
+}

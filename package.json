@@ -1,0 +1,17 @@
+{
+  "name": "veil-lumen",
+  "version": "0.1.0",
+  "description": "Veil Lumen — Vocaloid-inspired virtual singer with mesh & softbody pipeline",
+  "type": "module",
+  "scripts": {
+    "status": "node scripts/cli.mjs status veil-lumen",
+    "mesh-generate": "node scripts/cli.mjs run mesh-generate --out public/models/veil_clothing_optimized.json --quality high",
+    "physics-test": "node scripts/cli.mjs run physics-test --component softbody --duration 30s",
+    "dev": "node scripts/cli.mjs dev veil-lumen",
+    "build": "npm run mesh-generate && npm run physics-test",
+    "voice-test": "node scripts/cli.mjs run voice-test --duration 5s"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

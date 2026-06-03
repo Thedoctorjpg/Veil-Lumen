@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Project-local Grok-style CLI for Veil Lumen (run from this directory)
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+exec node "$ROOT/scripts/cli.mjs" "$@"
