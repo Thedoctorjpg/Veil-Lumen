@@ -7,6 +7,7 @@ import {
   MELBOURNE_QUEST,
   TAROT_SCAM_RED_FLAGS,
   CROSS_APPS,
+  HEALING_FACTORS,
   getSkillById,
   hermesPreloadCmd,
 } from "./skills-data.js";
@@ -66,6 +67,11 @@ function renderDetail(skill) {
       <article>
         <h4>Ritual → Veil</h4>
         <ol>${skill.ritualSteps.map((s) => `<li>${s}</li>`).join("")}</ol>
+        ${
+          skill.dibAftercareSteps?.length
+            ? `<h4 class="skill-aftercare-head">After blessing skit</h4><ol>${skill.dibAftercareSteps.map((s) => `<li>${s}</li>`).join("")}</ol>`
+            : ""
+        }
       </article>
       <article>
         <h4>Shadowing</h4>
@@ -141,6 +147,25 @@ function renderRedFlags() {
   box.innerHTML = `<ul>${TAROT_SCAM_RED_FLAGS.map((f) => `<li>${f}</li>`).join("")}</ul>`;
 }
 
+function renderHealingFactors() {
+  const box = el("skills-healing");
+  if (!box) return;
+  const factors = HEALING_FACTORS.factors
+    .map((f) => {
+      const bit = f.ko || f.phrase || f.note || f.edit || "";
+      return `<li><strong>${f.label}</strong>${bit ? ` — ${bit}` : ""}</li>`;
+    })
+    .join("");
+  const steps = HEALING_FACTORS.postBlessingSteps.map((s) => `<li>${s}</li>`).join("");
+  box.innerHTML = `
+    <p class="healing-mantra">${HEALING_FACTORS.mantra}</p>
+    <ul class="healing-factors">${factors}</ul>
+    <h4>Post-DIB ritual</h4>
+    <ol class="healing-ritual">${steps}</ol>
+    <a class="cross-app-link" href="${HEALING_FACTORS.urls.ttmikStep4}" target="_blank" rel="noopener">TTMIK step 4<span>Shadow + quest log</span></a>
+  `;
+}
+
 function renderCrossApps() {
   const box = el("skills-crossapps");
   if (!box) return;
@@ -160,6 +185,7 @@ export function initCreativeSkills() {
   const activeId = getActiveId();
   renderQuest();
   renderRedFlags();
+  renderHealingFactors();
   renderCrossApps();
   renderSkillList(activeId);
   renderDetail(getSkillById(activeId));

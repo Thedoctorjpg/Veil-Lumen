@@ -24,10 +24,40 @@ export const TAROT_SCAM_RED_FLAGS = [
   "Synchronicity (4:44, etc.) used as proof you owe trust",
 ];
 
+export const HEALING_FACTORS = {
+  theme: "Humor tends the wound — quiet lands the peace.",
+  mantra: "One breath · one boundary · no re-watch spiral",
+  factors: [
+    { id: "hermit-lantern", label: "Hermit Lantern", phrase: "One breath, one laugh", skillId: "melbourne-lantern-bard" },
+    { id: "humor-release", label: "Humor alchemy", ko: "유머로 풀어낼게요", skillId: "melbourne-lantern-bard", edit: "ep-2-5-dib" },
+    { id: "helen-boundary", label: "Helen boundary", ko: "괜찮아요, 괜찮아요", skillId: "helen-neighbor", shadowIndex: 2 },
+    { id: "pause-breathe", label: "Pause OK", ko: "잠시 쉬어도 괜찮아요", skillId: "helen-neighbor", shadowIndex: 4 },
+    { id: "cord-cut", label: "Cord-cut", phrase: "I choose my own timeline and energy field", skillId: "helen-neighbor" },
+    { id: "post-dib", label: "Post-DIB landing", pin: "HOTEL", preset: 9, edit: "dib-aftercare", questId: "side-dib-heal" },
+    { id: "daily-ritual", label: "Daily integration", questId: "side-ritual", skillId: "flame-kissed-bard" },
+    { id: "veil-soft-cut", label: "Veil soft cut", note: "Ballad / spoken boundary clip after dib-aftercare" },
+  ],
+  postBlessingSteps: [
+    "GoPro off · phone face-down · one breath",
+    "Name what the skit released — no re-watch spiral",
+    'Helen cord-cut: "I choose my own timeline and energy field"',
+    "Whisper 괜찮아요, 괜찮아요",
+    "Close: humor tended the wound — you do not owe the algorithm a reply",
+  ],
+  urls: {
+    ttmikStep4: "../TTMIK.html?step=4",
+    ttmikHeal: "../TTMIK.html?heal=1",
+    dibAftercare:
+      "http://localhost:8000/video-editor-ultimate.html?project=melbourne-lantern&format=dib-aftercare&aspect=9:16",
+  },
+};
+
 export const CROSS_APPS = [
   { label: "lets-cook · Schedule + Date", url: "http://localhost:5173/date-night", note: "RTDB-optimised Auckland→Melbourne timeline" },
   { label: "girls-love · After the Date", url: "http://localhost:5190", note: "Four-chapter romance novel" },
+  { label: "TTMIK · Healing step 4", url: "../TTMIK.html?step=4", note: "Post-DIB shadow + side-dib-heal quest" },
   { label: "TTMIK Journey", url: "../TTMIK.html", note: "Skills tab + shadowing" },
+  { label: "dib-aftercare edit", url: HEALING_FACTORS.urls.dibAftercare, note: "45s HOTEL mirror · Helen VO" },
   { label: "RTDB-Auckland", url: "https://github.com/Thedoctorjpg/RTDB-Auckland", note: "Waitemata · Britomart · Ferry boards" },
   { label: "Hermes preload", cmd: "hermes -s melbourne-lantern-bard,helen-neighbor,flame-kissed-bard" },
 ];
@@ -64,7 +94,12 @@ export const SKILLS = [
       "Film or write one sovereign skit beat for Veil export",
       'Close: "I create from flame, not from lack"',
     ],
-    veilOutputs: ["Stage lyrics", "Export Studio .webm", "Community ghost post"],
+    dibAftercareSteps: [
+      "After Ep 2.5 DIB — GoPro off before Veil soft cut",
+      "유머로 풀어낼게요 — then silence, not a re-watch",
+      "Hand off to Helen healing factors · TTMIK ?step=4",
+    ],
+    veilOutputs: ["Stage lyrics", "Export Studio .webm", "Community ghost post", "Post-DIB soft ballad cut"],
   },
   {
     id: "flame-kissed-bard",
@@ -159,6 +194,7 @@ export const SKILLS = [
       { ko: "제 시간을 지킬게요.", en: "I will protect my time." },
       { ko: "괜찮아요, 괜찮아요.", en: "It's okay, it's okay." },
       { ko: "공유는 괜찮아요. 거래는 아니에요.", en: "Sharing is fine. This isn't a transaction." },
+      { ko: "잠시 쉬어도 괜찮아요.", en: "It's okay to pause and breathe." },
     ],
     ritualSteps: [
       "Quick cord-cutting + neighbor release",
@@ -166,7 +202,13 @@ export const SKILLS = [
       "RED FLAG scan (2+ = abort) before any creative collab",
       "Turn trigger into skit → Veil export if it fits",
     ],
-    veilOutputs: ["Ballad lyrics", "Spoken boundary clip", "Community safety post"],
+    dibAftercareSteps: [
+      "Post–Divine Insight Blessing: phone face-down · GoPro off",
+      "Whisper 괜찮아요, 괜찮아요 until shoulders drop",
+      "Cord-cut: no reply to expired blessings",
+      "Veil soft cut: spoken boundary clip or ballad lyric line",
+    ],
+    veilOutputs: ["Ballad lyrics", "Spoken boundary clip", "dib-aftercare soft cut", "Community safety post"],
   },
   {
     id: "sua-tattoo",

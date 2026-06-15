@@ -25,12 +25,14 @@ metadata:
 - Draft a 30–60s vertical skit hook with chaotic neutral tone
 - Offer optional integration ritual tied to the trip moment
 - Suggest linked TTMIK Melbourne audio categories if language practice fits
+- After Ep 2.5 blessing skit: hand off to Helen quiet heal — preset 9, dib-aftercare, quest side-dib-heal
 
 ## Pitfalls
 
 - Do not re-traumatize — humor releases, it does not mock wounds
 - Avoid parasocial attachment or comparison spirals
 - Keep gear minimal: gym bag, GoPro, power bank — no laptop bloat
+- Do not skip post-skit landing — humor without aftercare can re-open the scam hook
 
 ## Verification
 

@@ -20,6 +20,7 @@ metadata:
 - After the date / cook-off — soulmate speedruns, ingredient-fee Venmos, or rescue framing
 - Post-Degraves morning: warmth without becoming everyone's rescue soup
 - Tarot-predicted romance scam DMs — Helen procedure, not debate
+- After Divine Insight Blessing skit — quiet reflection, no re-watch spiral
 
 ## Procedure
 
@@ -32,6 +33,8 @@ metadata:
 - Recommend minimal engagement / delete protocol if needed
 - After the date: offer tea before feelings — mean both
 - Practice Korean boundary phrases for real situations
+- Post-DIB self-healing: GoPro off · phone face-down · one breath · whisper 괜찮아요, 괜찮아요
+- Cord-cut after humor: no reply owed to expired blessings — optional dib-aftercare at HOTEL
 
 ## Pitfalls
 
@@ -53,6 +56,7 @@ metadata:
 - 제 시간을 지킬게요.
 - 괜찮아요, 괜찮아요.
 - 공유는 괜찮아요. 거래는 아니에요.
+- 잠시 쉬어도 괜찮아요.
 
 ## Cross-App Links
 
