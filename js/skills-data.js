@@ -25,9 +25,10 @@ export const TAROT_SCAM_RED_FLAGS = [
 ];
 
 export const CROSS_APPS = [
-  { label: "lets-cook · Date Night", url: "http://localhost:5173/date-night", note: "Degraves cook-off with the girls" },
+  { label: "lets-cook · Schedule + Date", url: "http://localhost:5173/date-night", note: "RTDB-optimised Auckland→Melbourne timeline" },
   { label: "girls-love · After the Date", url: "http://localhost:5190", note: "Four-chapter romance novel" },
   { label: "TTMIK Journey", url: "../TTMIK.html", note: "Skills tab + shadowing" },
+  { label: "RTDB-Auckland", url: "https://github.com/Thedoctorjpg/RTDB-Auckland", note: "Waitemata · Britomart · Ferry boards" },
   { label: "Hermes preload", cmd: "hermes -s melbourne-lantern-bard,helen-neighbor,flame-kissed-bard" },
 ];
 
