@@ -373,9 +373,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { initGhostPlayground } = await import("./ghost-playground.js");
   const { initExportStudio } = await import("./export-studio.js");
   const { initFaceTrack } = await import("./face-track.js");
+  const { initCreativeSkills } = await import("./creative-skills.js");
   initCliStatus();
   initVoiceClone();
   initGhostPlayground();
   initExportStudio();
   initFaceTrack();
+  initCreativeSkills();
 });

@@ -9,7 +9,8 @@
     "physics-test": "node scripts/cli.mjs run physics-test --component softbody --duration 30s",
     "dev": "node scripts/cli.mjs dev veil-lumen",
     "build": "npm run mesh-generate && npm run physics-test",
-    "voice-test": "node scripts/cli.mjs run voice-test --duration 5s"
+    "voice-test": "node scripts/cli.mjs run voice-test --duration 5s",
+    "sync-skills": "node scripts/sync-skills.mjs"
   },
   "engines": {
     "node": ">=18"
